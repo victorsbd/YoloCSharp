@@ -27,15 +27,14 @@ namespace YoloEmguCv
         /// <returns>List of <see cref="YoloResult">YoloResult</see></returns>
         /// <param name="mat">The frame to analyze</param>
         /// <param name="thresh">Threshold at which an object should be confirmed</param>
-        /// <param name="useMean">Unknown parameter</param>
-        public unsafe List<YoloResult> Detect(Mat mat, float thresh = 0.2f, bool useMean = false)
+        public unsafe List<YoloResult> Detect(Mat mat, float thresh = 0.2f)
         {
-            Wrapper.Detect(mat.DataPointer, mat.Rows, mat.Cols, thresh, useMean, out var elems, out var elemsSize);
+            Wrapper.Detect(mat.DataPointer, mat.Rows, mat.Cols, thresh, false, out var elems, out var elemsSize);
 
             var results = new List<YoloResult>(elemsSize);
             for(var i = 0; i < elemsSize; i++)
             {
-                results.Add(new YoloResult(elems[i].X, elems[i].Y, elems[i].W, elems[i].H, elems[i].Prob, elems[i].ObjId, elems[i].TrackId, elems[i].FramesCounter));
+                results.Add(new YoloResult(elems[i].X, elems[i].Y, elems[i].W, elems[i].H, elems[i].Prob, elems[i].ObjId));
             }
 
             return results;
