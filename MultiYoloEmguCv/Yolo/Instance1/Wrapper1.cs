@@ -1,25 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace YoloEmguCv1
+namespace MultiYoloEmguCv.Yolo.Instance1
 {
-    internal static class Wrapper
+    internal static class Wrapper1
     {
         private const string DllName = "YoloApi1";
-
-        // same as c++ struct bbox_t from yolo_v2_class
-        // need to disable check for Field XYZ is never assigned to, and will always have its default value XX
-        // because the struct is initialized in the c++ code
-        #pragma warning disable 0649
-        internal struct BoundingBox
-        {
-            internal uint X, Y, W, H;
-            internal float Prob;
-            internal uint ObjId;
-            internal uint TrackId;
-            internal uint FramesCounter;
-        };
-        #pragma warning restore 0649
 
         [DllImport(DllName, EntryPoint = "initDetector", CallingConvention = CallingConvention.Cdecl)]
         internal static extern void Init(string cfgFile, string weightFile, int gpuId = 0);

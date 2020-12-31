@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleConsoleNetFramework",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoloEmguCv", "YoloEmguCv\YoloEmguCv.csproj", "{48025D34-0BE2-415D-A9EB-A7271FE12F02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoloEmguCv1", "YoloEmguCv1\YoloEmguCv1.csproj", "{48025D34-0BE2-415D-A9EB-A7271FE12F03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiYoloEmguCv", "MultiYoloEmguCv\MultiYoloEmguCv.csproj", "{48025D34-0BE2-415D-A9EB-A7271FE12F03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

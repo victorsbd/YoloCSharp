@@ -7,8 +7,8 @@
     <ProjectGuid>{48025D34-0BE2-415D-A9EB-A7271FE12F03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YoloEmguCv1</RootNamespace>
-    <AssemblyName>YoloEmguCv1</AssemblyName>
+    <RootNamespace>MultiYoloEmguCv</RootNamespace>
+    <AssemblyName>MultiYoloEmguCv</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,14 +51,23 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Darknet1.cs" />
+    <Compile Include="Darknet.cs" />
+    <Compile Include="DarknetInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrapper.cs" />
+    <Compile Include="Yolo\Instance3\Wrapper3.cs" />
+    <Compile Include="Yolo\Instance3\Yolo3.cs" />
+    <Compile Include="Yolo\Instance2\Wrapper2.cs" />
+    <Compile Include="Yolo\Instance2\Yolo2.cs" />
+    <Compile Include="Yolo\Instance1\Wrapper1.cs" />
+    <Compile Include="Yolo\Instance1\Yolo1.cs" />
+    <Compile Include="Yolo\Instance0\Wrapper0.cs" />
+    <Compile Include="Yolo\BoundingBox.cs" />
+    <Compile Include="Yolo\Yolo.cs" />
+    <Compile Include="Yolo\Instance0\Yolo0.cs" />
+    <Compile Include="Yolo\IYolo.cs" />
+    <Compile Include="YoloResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -67,10 +76,6 @@
     <ProjectReference Include="..\src\YoloApi\YoloApi.vcxproj">
       <Project>{8e1dd125-a767-4228-a5c6-c106b36793ca}</Project>
       <Name>YoloApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YoloEmguCv\YoloEmguCv.csproj">
-      <Project>{48025d34-0be2-415d-a9eb-a7271fe12f02}</Project>
-      <Name>YoloEmguCv</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
