@@ -35,7 +35,7 @@
         /// </summary>
         public uint ObjId { get; }
 
-        internal YoloResult(uint x, uint y, uint width, uint height, float confidence, uint objId)
+        public YoloResult(uint x, uint y, uint width, uint height, float confidence, uint objId)
         {
             X = x;
             Y = y;
