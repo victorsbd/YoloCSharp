@@ -24,27 +24,50 @@ namespace MultiYoloEmguCv
         /// <param name="weightFile">The *.weights file</param>
         /// <param name="instanceNumber">The instance of YoloApi.dll to avoid static detector limitation from darknet c++ library. A file with the name YoloApi{instancenumber}.dll is needed</param>
         /// <param name="gpuId">The index of a CUDA compatible GPU</param>
-        public Darknet(string cfgFile, string weightFile, int instanceNumber, int gpuId)
+        /// <param name="cudaVersion">Cuda version, 10 or 11, by default 10</param>
+        public Darknet(string cfgFile, string weightFile, int instanceNumber, int gpuId, int cudaVersion)
         {
             if (instanceNumber > 3 || instanceNumber < 0)
             {
                 throw new ArgumentException("instanceNumber must be  0 <= and <= 3");
             }
-            switch (instanceNumber)
+            if (cudaVersion != 11)
             {
-                case 0:
-                    _yolo = new Yolo0(cfgFile,weightFile,gpuId);
-                    break;
-                case 1:
-                    _yolo = new Yolo1(cfgFile, weightFile, gpuId);
-                    break;
-                case 2:
-                    _yolo = new Yolo2(cfgFile, weightFile, gpuId);
-                    break;
-                case 3:
-                    _yolo = new Yolo3(cfgFile, weightFile, gpuId);
-                    break;
+                switch (instanceNumber)
+                {
+                    case 0:
+                        _yolo = new Yolo0(cfgFile, weightFile, gpuId);
+                        break;
+                    case 1:
+                        _yolo = new Yolo1(cfgFile, weightFile, gpuId);
+                        break;
+                    case 2:
+                        _yolo = new Yolo2(cfgFile, weightFile, gpuId);
+                        break;
+                    case 3:
+                        _yolo = new Yolo3(cfgFile, weightFile, gpuId);
+                        break;
+                }
             }
+            else
+            {
+                switch (instanceNumber)
+                {
+                    case 0:
+                        _yolo = new YoloCppDll0(cfgFile, weightFile, gpuId);
+                        break;
+                    case 1:
+                        _yolo = new YoloCppDll1(cfgFile, weightFile, gpuId);
+                        break;
+                    case 2:
+                        _yolo = new YoloCppDll2(cfgFile, weightFile, gpuId);
+                        break;
+                    case 3:
+                        _yolo = new YoloCppDll3(cfgFile, weightFile, gpuId);
+                        break;
+                }
+            }
+           
         }
 
         /// <summary>
