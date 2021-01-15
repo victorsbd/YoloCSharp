@@ -1,6 +1,7 @@
 #include "yolo_v2_class.hpp"
 #include <opencv2/opencv.hpp>
 
+
 #if defined(_WINDOWS)
 #define YOLOAPI_EXPORT __declspec(dllexport)
 #else
