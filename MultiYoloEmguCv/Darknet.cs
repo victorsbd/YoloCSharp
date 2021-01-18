@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Emgu.CV;
-using MultiYoloEmguCv.Yolo;
-using MultiYoloEmguCv.Yolo.Instance0;
-using MultiYoloEmguCv.Yolo.Instance1;
-using MultiYoloEmguCv.Yolo.Instance2;
-using MultiYoloEmguCv.Yolo.Instance3;
+using MultiYoloEmguCv.YoloWrapper;
 
 namespace MultiYoloEmguCv
 {
@@ -15,7 +11,7 @@ namespace MultiYoloEmguCv
     /// </summary>
     public class Darknet : IDisposable
     {
-        private readonly IYolo _yolo;
+        private readonly Yolo _yolo;
 
         /// <summary>
         /// Initializes a new Darknet detector with the <paramref name="cfgFile"/> and the <paramref name="weightFile"/>
@@ -31,43 +27,7 @@ namespace MultiYoloEmguCv
             {
                 throw new ArgumentException("instanceNumber must be  0 <= and <= 3");
             }
-            if (cudaVersion != 11)
-            {
-                switch (instanceNumber)
-                {
-                    case 0:
-                        _yolo = new Yolo0(cfgFile, weightFile, gpuId);
-                        break;
-                    case 1:
-                        _yolo = new Yolo1(cfgFile, weightFile, gpuId);
-                        break;
-                    case 2:
-                        _yolo = new Yolo2(cfgFile, weightFile, gpuId);
-                        break;
-                    case 3:
-                        _yolo = new Yolo3(cfgFile, weightFile, gpuId);
-                        break;
-                }
-            }
-            else
-            {
-                switch (instanceNumber)
-                {
-                    case 0:
-                        _yolo = new YoloCppDll0(cfgFile, weightFile, gpuId);
-                        break;
-                    case 1:
-                        _yolo = new YoloCppDll1(cfgFile, weightFile, gpuId);
-                        break;
-                    case 2:
-                        _yolo = new YoloCppDll2(cfgFile, weightFile, gpuId);
-                        break;
-                    case 3:
-                        _yolo = new YoloCppDll3(cfgFile, weightFile, gpuId);
-                        break;
-                }
-            }
-           
+            _yolo = new Yolo(cfgFile, weightFile, gpuId, instanceNumber,cudaVersion);
         }
 
         /// <summary>

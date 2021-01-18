@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace MultiYoloEmguCv.Yolo.Instance3
+namespace MultiYoloEmguCv.YoloWrapper.Wrappers
 {
     internal static class Wrapper3
     {
@@ -12,6 +12,8 @@ namespace MultiYoloEmguCv.Yolo.Instance3
         [DllImport(DllName, EntryPoint = "closeDetector", CallingConvention = CallingConvention.Cdecl)]
         internal static extern void Close();
         [DllImport(DllName, EntryPoint = "detect", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern unsafe void Detect(IntPtr matPtr, int matRows, int matCols, float thresh, bool useMean, out BoundingBox* elems, out int elemsSize);
+        internal static extern unsafe void Detect(IntPtr matPtr, int matRows, int matCols, float thresh, bool useMean, out BoundingBox10* elems, out int elemsSize);
+        [DllImport(DllName, EntryPoint = "detect", CallingConvention = CallingConvention.Cdecl)]
+        internal static extern unsafe void Detect(IntPtr matPtr, int matRows, int matCols, float thresh, bool useMean, out BoundingBox11* elems, out int elemsSize);
     }
 }

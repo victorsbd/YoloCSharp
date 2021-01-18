@@ -55,28 +55,14 @@
   <ItemGroup>
     <Compile Include="Darknet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Yolo\BboxContainer.cs" />
-    <Compile Include="Yolo\Instance0\YoloCppDll0.cs" />
-    <Compile Include="Yolo\Instance0\YoloCppDllWrapper0.cs" />
-    <Compile Include="Yolo\Instance1\YoloCppDll1.cs" />
-    <Compile Include="Yolo\Instance1\YoloCppDllWrapper1.cs" />
-    <Compile Include="Yolo\Instance2\YoloCppDll2.cs" />
-    <Compile Include="Yolo\Instance2\YoloCppDllWrapper2.cs" />
-    <Compile Include="Yolo\Instance3\Wrapper3.cs" />
-    <Compile Include="Yolo\Instance3\Yolo3.cs" />
-    <Compile Include="Yolo\Instance2\Wrapper2.cs" />
-    <Compile Include="Yolo\Instance2\Yolo2.cs" />
-    <Compile Include="Yolo\Instance1\Wrapper1.cs" />
-    <Compile Include="Yolo\Instance1\Yolo1.cs" />
-    <Compile Include="Yolo\Instance0\Wrapper0.cs" />
-    <Compile Include="Yolo\BoundingBox.cs" />
-    <Compile Include="Yolo\Instance3\YoloCppDll3.cs" />
-    <Compile Include="Yolo\Instance3\YoloCppDllWrapper3.cs" />
-    <Compile Include="Yolo\Yolo.cs" />
-    <Compile Include="Yolo\Instance0\Yolo0.cs" />
-    <Compile Include="Yolo\IYolo.cs" />
+    <Compile Include="YoloWrapper\CudaVersion\BoundingBox10.cs" />
+    <Compile Include="YoloWrapper\CudaVersion\BoundingBox11.cs" />
+    <Compile Include="YoloWrapper\Wrappers\Wrapper3.cs" />
+    <Compile Include="YoloWrapper\Wrappers\Wrapper2.cs" />
+    <Compile Include="YoloWrapper\Wrappers\Wrapper1.cs" />
+    <Compile Include="YoloWrapper\Wrappers\Wrapper0.cs" />
+    <Compile Include="YoloWrapper\Yolo.cs" />
     <Compile Include="YoloResult.cs" />
-    <Compile Include="Yolo\YoloCppDll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
